@@ -1,0 +1,29 @@
+{
+  "checksums": {
+    "manifests/config.pp": "424411379ff047d9b819d44eb1935614",
+    "manifests/service.pp": "6c56fc28b6475201cbcb26dcee9585c9",
+    "manifests/params.pp": "ff3e6cb1ae6b0bee34480cd743395a2d",
+    "README.md": "7f8b7601c5967eac938f316e8e453994",
+    "templates/etc/elasticsearch/elasticsearch.yml.erb": "6a2dbdcafaf04f8aa2098e49ae1f4c3f",
+    "manifests/init.pp": "ef1e42c599ecc11ad265c1ac80f39dd9",
+    "manifests/package.pp": "ead2f8a9a76ce9d14884635ceec619ff",
+    "Modulefile": "d4d5b2c45fd12f9080c659707f6d5858"
+  },
+  "author": "ispavailability",
+  "dependencies": [
+    {
+      "version_requirement": ">= 3.0.0",
+      "name": "puppetlabs/stdlib"
+    }
+  ],
+  "source": "https://github.com/electrical/puppet-elasticsearch",
+  "types": [
+
+  ],
+  "license": "Apache License, Version 2.0",
+  "version": "0.0.1",
+  "description": "Module for managing and configuring Elasticsearch nodes",
+  "name": "ispavailability-elasticsearch",
+  "project_page": "https://github.com/electrical/puppet-elasticsearch",
+  "summary": "Module for managing and configuring Elasticsearch nodes"
+}

@@ -1,0 +1,7 @@
+[spacewalk-tools-EL5-x86_64]
+name=spacewalk-tools-EL5-x86_64
+baseurl=http://spacewalk.redhat.com/yum/latest-client/RHEL/5/x86_64/
+enabled=1
+priority=90
+gpgcheck=1
+gpgkey=http://spacewalk.redhat.com/yum/RPM-GPG-KEY-spacewalk-2012

@@ -1,0 +1,7 @@
+[spacewalk-server-EL6-x86_64]
+name=spacewalk-server-EL6-x86_64
+baseurl=http://spacewalk.redhat.com/yum/latest/RHEL/6/x86_64/
+enabled=1
+priority=90
+gpgcheck=1
+gpgkey=http://spacewalk.redhat.com/yum/RPM-GPG-KEY-spacewalk-2012

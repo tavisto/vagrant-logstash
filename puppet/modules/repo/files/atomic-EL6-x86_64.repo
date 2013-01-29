@@ -1,0 +1,7 @@
+[atomic-el6-x86_64]
+name=atomic-el6-x86_64
+baseurl=http://www6.atomicorp.com/channels/atomic/redhat/6/x86_64/
+enabled=1
+priority=90
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-atomic

@@ -1,3 +1,19 @@
 node indexer {
-  notify{"Hello from ${::fqdn}":}
+
+  include gpgkeys::tavisto
+  repo::tavisto {'tavisto':}
+  class { 'elasticsearch':
+    config                   => {
+      'node'                 => {
+        'name'               => 'indexer001'
+      },
+      'index'                => {
+        'number_of_replicas' => '0',
+        'number_of_shareds'  => '5'
+      },
+      'network'              => {
+        'host'               => $::ipaddress
+      }
+    }
+  }
 }

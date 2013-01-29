@@ -1,0 +1,39 @@
+{
+  "checksums": {
+    "manifests/output/rabbitmq.pp": "cf4b11521c9c19d6f081ebb1bca327d5",
+    "manifests/params.pp": "bdec13eda553a92e70c3fb7b339f3cc9",
+    "manifests/config.pp": "58e0faf6ad04bef6eb3f9f4710990122",
+    "files/etc/init.d/beaver.RedHat": "30a1a47f3a41c07af33b1ad39217fb28",
+    "manifests/output/zeromq.pp": "6b221b66941142a87adc64716038ee5a",
+    "manifests/output/redis.pp": "c8eb07e640f356cd55d77e968119ea7f",
+    "Modulefile": "eefa48461661039b04bfb9160814a44c",
+    "manifests/input/file.pp": "6de583b16e75924333cbc0eafab4ba03",
+    "README.md": "2f64ae6f09c8ff2fea255e0ea8725104",
+    "files/etc/init.d/beaver.Debian": "44ba35b1bbe604b1dea6784be55e0eb4",
+    "manifests/service.pp": "efd202a054912c8a761c18b4dd9d353b",
+    "manifests/package.pp": "fd651bdf0976c7aeb7b80ccb98c3ad15",
+    "manifests/init.pp": "6138ea6a7a5e9d77b824205129186f25",
+    "manifests/output/udp.pp": "5b8845c29ddd7a0732c15538cfe8c73a"
+  },
+  "author": "ispavailability",
+  "dependencies": [
+    {
+      "version_requirement": ">= 3.0.0",
+      "name": "puppetlabs/stdlib"
+    },
+    {
+      "version_requirement": ">= 0.0.1",
+      "name": "ispavailability/file_concat"
+    }
+  ],
+  "source": "https://github.com/electrical/puppet-beaver",
+  "types": [
+
+  ],
+  "license": "Apache License, Version 2.0",
+  "version": "0.0.1",
+  "description": "Module for managing and configuring beaver",
+  "name": "ispavailability-beaver",
+  "project_page": "https://github.com/electrical/puppet-beaver",
+  "summary": "Module for managing and configuring beaver"
+}
