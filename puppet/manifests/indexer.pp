@@ -12,8 +12,13 @@ node indexer {
         'number_of_shareds'  => '5'
       },
       'network'              => {
-        'host'               => $::ipaddress
+        'host'               => '0.0.0.0'
       }
     }
+  }
+  class { 'logstash':
+    jarfile     => '/vagrant/logstash-1.1.9-monolithic.jar',
+    provider    => 'custom',
+    installpath => '/var/logstash',
   }
 }

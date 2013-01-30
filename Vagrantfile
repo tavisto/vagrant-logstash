@@ -19,6 +19,8 @@ Vagrant::Config.run do |config|
 
   config.vm.define :indexer do |config02|
     config02.vm.host_name = "indexer"
+    config02.vm.forward_port 9200, 9200 
+    config02.vm.customize ["modifyvm", :id, "--memory", 1024]
     config02.vm.network :hostonly, "192.168.1.11"
     config02.vm.provision :puppet do |puppet|
       puppet.manifest_file = "indexer.pp"
