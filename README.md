@@ -3,13 +3,16 @@ vagrant-logstash
 
 Basic vagrant setup for a three node logstash cluster.
 
-== Shipper ==
+Shipper 
+-------
 Place to read logs from and ship them off with Beaver
 
-== Indexer ===
+Indexer
+-------
 Runs Elasticsearch and Logstash to index all the logs
 
-== Web ==
+Web
+---
 Runs Kibana for a sexy web interface
 
 
