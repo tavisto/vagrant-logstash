@@ -3,24 +3,24 @@ node indexer {
   include gpgkeys::tavisto
   repo::tavisto {'tavisto':}
   class { 'elasticsearch':
-    config                   => {
-      'node'                 => {
-        'name'               => 'indexer001'
+    config      => {
+      'node'    => {
+        'name'  => 'indexer001'
       },
-      'index'                => {
+      'index'   => {
         'number_of_replicas' => '0',
         'number_of_shareds'  => '5'
       },
-      'network'              => {
-        'host'               => '0.0.0.0'
+      'network' => {
+        'host'  => '0.0.0.0'
       }
     }
   }
+
   class { 'logstash':
     status   => 'running',
     provider => 'package',
   }
-
 
   logstash::input::tcp { 'apache':
     type => 'apache',

@@ -10,3 +10,6 @@
 [submodule "puppet/modules/kibana"]
 	path = puppet/modules/kibana
 	url = https://github.com/electrical/puppet-kibana.git
+[submodule "puppet/modules/redis"]
+	path = puppet/modules/redis
+	url = https://github.com/KrisBuytaert/puppet-redis.git
