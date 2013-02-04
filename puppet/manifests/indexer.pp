@@ -17,10 +17,8 @@ node indexer {
     }
   }
   class { 'logstash':
-    jarfile     => '/vagrant/logstash-1.1.9-monolithic.jar',
-    provider    => 'custom',
-    installpath => '/var/logstash',
-    status      => 'unmanaged',
+    status   => 'running',
+    provider => 'package',
   }
 
 

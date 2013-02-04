@@ -1,3 +1,12 @@
 [submodule "puppet/modules/logstash"]
 	path = puppet/modules/logstash
 	url = https://github.com/electrical/puppet-logstash.git
+[submodule "puppet/modules/elasticsearch"]
+	path = puppet/modules/elasticsearch
+	url = https://github.com/electrical/puppet-elasticsearch.git
+[submodule "puppet/modules/beaver"]
+	path = puppet/modules/beaver
+	url = https://github.com/electrical/puppet-beaver.git
+[submodule "puppet/modules/kibana"]
+	path = puppet/modules/kibana
+	url = https://github.com/electrical/puppet-kibana.git
