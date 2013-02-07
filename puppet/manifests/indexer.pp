@@ -22,10 +22,26 @@ node indexer {
     provider => 'package',
   }
 
+  # Quick dirty input
   logstash::input::tcp { 'apache':
     type => 'apache',
     port => 3333,
     tags => ['apache','access']
+  }
+
+
+  # RabbitMQ input
+  logstash::input::amqp { 'apache-access':
+    exchange  => 'logstash-exchange',
+    queue     => 'logstash-queue',
+    key       => 'logstash-key',
+    host      => '192.168.1.10',
+    user      => 'indexer',
+    exclusive => false,
+    password  => 'pass',
+    vhost     => 'logstash',
+    type      => 'apache',
+    tags      => ['apache','access'],
   }
 
   logstash::filter::grok { 'apache-access':

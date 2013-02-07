@@ -5,3 +5,9 @@ enabled=1
 priority=90
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-TAVISTO
+[tavisto-testing-el6-x86_64]
+name=tavisto-el6-x86_64
+baseurl=http://rpms.tavisto.net/el6-testing/x86_64/
+enabled=1
+priority=90
+gpgcheck=0
