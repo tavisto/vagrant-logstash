@@ -1,4 +1,7 @@
 node web {
 
-  class { 'kibana': }
+  class { 'kibana':
+    standalone  => false,
+    config_file => '/vagrant/Kibana/KibanaConfig.rb'
+  }
 }

@@ -32,6 +32,7 @@ Vagrant::Config.run do |config|
   config.vm.define :web do |config03|
     config03.vm.host_name = "web"
     config03.vm.forward_port 80, 8080
+    config03.vm.forward_port 5601, 5601
     config03.vm.network :hostonly, "192.168.1.12"
     config03.vm.provision :puppet do |puppet|
       puppet.manifest_file = "web.pp"
