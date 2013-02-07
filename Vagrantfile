@@ -9,6 +9,7 @@ Vagrant::Config.run do |config|
 
   config.vm.define :shipper do |config01|
     config01.vm.host_name = "shipper"
+    config01.vm.forward_port 15672, 15672
     config01.vm.network :hostonly, "192.168.1.10"
     config01.vm.provision :puppet do |puppet|
       puppet.manifest_file = "shipper.pp"
