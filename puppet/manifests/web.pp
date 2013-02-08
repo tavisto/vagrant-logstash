@@ -1,7 +1,10 @@
 node web {
+  include gpgkeys::tavisto
+  repo::tavisto {'tavisto':}
 
   class { 'kibana':
-    standalone  => false,
-    config_file => '/vagrant/Kibana/KibanaConfig.rb'
+    status      => enabled,
+    standalone  => true,
+    config_file => '/vagrant/KibanaConfig.rb'
   }
 }

@@ -29,19 +29,27 @@ node indexer {
     tags => ['apache','access']
   }
 
+  logstash::input::file { 'logstash':
+    type         => 'logstash',
+    path         => ['/var/log/logstash/logstash.log'],
+    sincedb_path => '/var/lib/logstash',
+  }
+
+  logstash::filter::json { 'logstash':
+    type => 'logstash',
+  }
+
 
   # RabbitMQ input
-  logstash::input::amqp { 'apache-access':
-    exchange  => 'logstash-exchange',
-    queue     => 'logstash-queue',
-    key       => 'logstash-key',
-    host      => '192.168.1.10',
-    user      => 'indexer',
-    exclusive => false,
-    password  => 'pass',
-    vhost     => 'logstash',
-    type      => 'apache',
-    tags      => ['apache','access'],
+  logstash::input::amqp { 'secure':
+    queue       => 'logstash-queue',
+    type        => 'fanout',
+    host        => '192.168.1.10',
+    exchange    => 'logstash-exchange',
+    user        => 'indexer',
+    password    => 'pass',
+    tags        => ['apache','access'],
+    vhost       => 'logstash',
   }
 
   logstash::filter::grok { 'apache-access':

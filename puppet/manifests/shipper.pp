@@ -16,7 +16,7 @@ node shipper {
     provider => 'rabbitmqctl',
   }
   rabbitmq_user_permissions {
-    'admin@logstash':
+    'admin@/logstash':
       configure_permission => '.*',
       read_permission      => '.*',
       write_permission     => '.*',
@@ -31,7 +31,7 @@ node shipper {
   }
 
   # Logstash vhost
-  rabbitmq_vhost { 'logstash':
+  rabbitmq_vhost { '/logstash':
     provider => 'rabbitmqctl',
   }
 
@@ -43,7 +43,13 @@ node shipper {
   }
 
   rabbitmq_user_permissions {
-    'shipper@logstash':
+    'shipper@/logstash':
+      configure_permission => '.*',
+      read_permission      => '.*',
+      write_permission     => '.*',
+      provider             => 'rabbitmqctl',
+      ;
+    'shipper@/':
       configure_permission => '.*',
       read_permission      => '.*',
       write_permission     => '.*',
@@ -57,7 +63,13 @@ node shipper {
     provider => 'rabbitmqctl',
   }
   rabbitmq_user_permissions {
-    'indexer@logstash':
+    'indexer@/logstash':
+      configure_permission => '.*',
+      read_permission      => '.*',
+      write_permission     => '.*',
+      provider             => 'rabbitmqctl',
+      ;
+    'indexer@/':
       configure_permission => '.*',
       read_permission      => '.*',
       write_permission     => '.*',
@@ -72,7 +84,7 @@ node shipper {
     provider => 'rabbitmqplugins',
   }
 
-  package { 'python-pip':
+  package { ['python-pip', 'redis']:
     ensure => latest,
   }
 
@@ -81,24 +93,25 @@ node shipper {
     target  => '/usr/bin/pip-python',
     require => Package['python-pip'],
   }
+
   class { 'beaver':
     transport => 'rabbitmq',
     require   => File['/usr/bin/pip'],
   }
 
-  beaver::input::file { 'test-log':
+  beaver::input::file { 'secure':
     file => '/var/log/secure',
+    type => 'secure',
   }
 
   beaver::output::rabbitmq { 'rabbitmq_output':
-    host          => 'localhost',
-    vhost         => 'logstash',
-    username      => 'shipper',
-    password      => 'pass',
-    queue         => 'logstash-queue',
-    exchange      => 'logstash-exchange',
-    exchange_type => 'fanout',
-    key           => 'logstash-key',
+    queue            => 'logstash-queue',
+    exchange_type    => 'fanout',
+    host             => 'localhost',
+    exchange         => 'logstash-exchange',
+    key              => 'logstash-key',
+    username         => 'shipper',
+    password         => 'pass',
   }
 
 }

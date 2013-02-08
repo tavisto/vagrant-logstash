@@ -13,3 +13,6 @@
 [submodule "puppet/modules/rabbitmq"]
 	path = puppet/modules/rabbitmq
 	url = https://github.com/gergnz/puppetlabs-rabbitmq.git
+[submodule "puppet/modules/redis"]
+	path = puppet/modules/redis
+	url = https://github.com/electrical/puppet-redis.git
