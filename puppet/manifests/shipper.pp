@@ -84,7 +84,12 @@ node shipper {
     provider => 'rabbitmqplugins',
   }
 
-  package { ['python-pip', 'redis']:
+  class { 'redis':
+    autoupgrade => true,
+    bind_ip     => '0.0.0.0'
+  }
+
+  package { 'python-pip':
     ensure => latest,
   }
 
@@ -104,14 +109,18 @@ node shipper {
     type => 'secure',
   }
 
-  beaver::output::rabbitmq { 'rabbitmq_output':
-    queue            => 'logstash-queue',
-    exchange_type    => 'fanout',
-    host             => 'localhost',
-    exchange         => 'logstash-exchange',
-    key              => 'logstash-key',
-    username         => 'shipper',
-    password         => 'pass',
+  #beaver::output::rabbitmq { 'rabbitmq_output':
+  #  queue            => 'logstash-queue',
+  #  exchange_type    => 'fanout',
+  #  host             => 'localhost',
+  #  exchange         => 'logstash-exchange',
+  #  key              => 'logstash-key',
+  #  username         => 'shipper',
+  #  password         => 'pass',
+  #}
+
+  beaver::output::redis { 'redis_output':
+    host => '127.0.01',
   }
 
 }

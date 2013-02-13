@@ -41,15 +41,21 @@ node indexer {
 
 
   # RabbitMQ input
-  logstash::input::amqp { 'secure':
-    queue       => 'logstash-queue',
-    type        => 'fanout',
-    host        => '192.168.1.10',
-    exchange    => 'logstash-exchange',
-    user        => 'indexer',
-    password    => 'pass',
-    tags        => ['apache','access'],
-    vhost       => 'logstash',
+  #logstash::input::amqp { 'secure':
+  #  queue       => 'logstash-queue',
+  #  type        => 'fanout',
+  #  host        => '192.168.1.10',
+  #  exchange    => 'logstash-exchange',
+  #  user        => 'indexer',
+  #  password    => 'pass',
+  #  tags        => ['apache','access'],
+  #}
+
+  logstash::input::redis { 'redis_from_beaver':
+    type      => 'secure',
+    host      => '192.166.1.10',
+    data_type => 'list',
+    key       => 'logstash:beaver'
   }
 
   logstash::filter::grok { 'apache-access':
